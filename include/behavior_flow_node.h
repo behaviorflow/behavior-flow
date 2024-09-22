@@ -1,0 +1,9 @@
+
+
+namespace bf {
+
+class BehaviorFlowNode {
+
+};
+
+}
