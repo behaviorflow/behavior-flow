@@ -8,7 +8,7 @@ Discrete behaviors (e.g. move, sense, etc.) are defined by a user in C++ and the
 
 For execution logic that is better defined by code, users can define **control wrapper** nodes, which wrap nodes or sequences of nodes and execute them in whatever way is defined. Control nodes fit into the node graph like any other node. 
 
-Finally, users can encapsulate node graphs into **sub-graphs**, which can be reused in multiple locations and make this tool easier to work with.
+Lastly, users can encapsulate node graphs into **sub-graphs**, which can be reused in multiple locations and make this tool easier to work with.
 
 These models are stored as human-readable formatted text. However, we recommend using our Behavior Flow Editor GUI to define the models, then exporting the text representation from there.
 
