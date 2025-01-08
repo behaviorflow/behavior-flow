@@ -1,20 +1,21 @@
-set(TESTS
+set(TEST_SOURCES
     test_behavior_flow_graph.cpp
-)
-
-set(TEST_DEPS
-    ${BF_LIBRARY}
+    test_graph_file_parser_json.cpp
 )
 
 find_package(GTest REQUIRED)
 enable_testing()
 
-add_executable(${PROJECT_NAME}_test ${TESTS})
+foreach(test_file IN LISTS TEST_SOURCES)
+    get_filename_component(test_name ${test_file} NAME_WE)
+    add_executable(${test_name} ${test_file})
 
-target_link_libraries(${PROJECT_NAME}_test
-    ${TEST_DEPS}
-    Threads::Threads
-    GTest::gtest
-    )
+    target_link_libraries(${test_name}
+        ${BF_LIBRARY} # Consider only adding deps required for each test
+        Threads::Threads
+        GTest::gtest
+        GTest::gtest_main
+        )
 
-add_test(NAME ${PROJECT_NAME}_test COMMAND ${PROJECT_NAME}_test)
+    add_test(NAME ${test_name} COMMAND ${test_name}) 
+endforeach()

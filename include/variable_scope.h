@@ -7,7 +7,7 @@
 #include <map>
 #include <any>
 
-namespace bf {
+namespace behaviorflow {
 
 class VariableScope {
   public:
@@ -34,4 +34,4 @@ class VariableScope {
 
 };
 
-}
+} // end namespace behaviorflow

@@ -3,25 +3,22 @@
 #include <gtest/gtest.h>
 #include "behavior_flow_graph.h"
 
-using namespace bf;
+using namespace behaviorflow;
 
-class BehaviorFlowGraphTest : public ::testing::Test {
-  protected:
-    BehaviorFlowGraph bf_graph;
-    void SetUp() override {
-        bf_graph = BehaviorFlowGraph();
-    }  
+class BehaviorFlowGraphTest : public ::testing::Test
+{
+protected:
+  BehaviorFlowGraph bf_graph;
+  void SetUp() override
+  {
+    bf_graph = BehaviorFlowGraph();
+  }
+};
+
+TEST_F(BehaviorFlowGraphTest, EmptyGraph)
+{
 }
 
-TEST(BehaviorFlowGraphTest, EmptyGraph) {
-
-}
-
-TEST(BehaviorFlowGraphTest, SingleNode) {
-
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+TEST_F(BehaviorFlowGraphTest, SingleNode)
+{
 }

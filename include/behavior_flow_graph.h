@@ -4,12 +4,13 @@
 #define BEHAVIOR_FLOW__BEHAVIOR_FLOW_GRAPH_HPP_
 
 
-namespace bf {
+namespace behaviorflow {
 
 class BehaviorFlowGraph {
-    
+  public:
+    BehaviorFlowGraph();
 };
 
-}
+} // end namespace behaviorflow
 
 #endif  // BEHAVIOR_FLOW__BEHAVIOR_FLOW_GRAPH_HPP_

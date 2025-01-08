@@ -1,9 +1,9 @@
 
 
-namespace bf {
+namespace behaviorflow {
 
 class BehaviorFlowNode {
 
 };
 
-}
+} // end namespace behaviorflow

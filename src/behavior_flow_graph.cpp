@@ -1,6 +1,6 @@
 #include "behavior_flow_graph.h"
 
-namespace bf {
+namespace behaviorflow {
 
 BehaviorFlowGraph::BehaviorFlowGraph() {
     
