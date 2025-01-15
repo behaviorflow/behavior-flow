@@ -1,7 +1,12 @@
 set(TEST_SOURCES
     test_behavior_flow_graph.cpp
     test_graph_file_parser_json.cpp
+    test_behavior_flow_engine.cpp
+    test_node_factory.cpp
+    src/nodes_for_testing.cpp
 )
+
+include_directories(include)
 
 find_package(GTest REQUIRED)
 enable_testing()

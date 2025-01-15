@@ -33,7 +33,14 @@
 
 # VS Code
 .vscode/
+.vs/
 
 # build
 build/
 install/
+
+# CMake
+CMakeLists.txt.user
+CMakeSettings.json
+
+/.cache/*

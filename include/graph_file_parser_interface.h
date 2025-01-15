@@ -1,3 +1,8 @@
+// Copyright (c) 2024, Mitch Adams
+
+#ifndef BEHAVIOR_FLOW__GRAPH_FILE_PARSER_INTERFACE_H_
+#define BEHAVIOR_FLOW__GRAPH_FILE_PARSER_INTERFACE_H_
+
 #include "behavior_flow_graph.h"
 #include <string>
 #include <iostream>
@@ -29,3 +34,5 @@ namespace behaviorflow
     std::string getStringFromFile(std::string graph_file_path);
   };
 } // end namespace behaviorflow
+
+#endif  // BEHAVIOR_FLOW__GRAPH_FILE_PARSER_INTERFACE_H_

@@ -1,6 +1,9 @@
+// Copyright (c) 2024, Mitch Adams
+
 // includes variables and global variables for a given scope, mapped by key
 
-
+#ifndef BEHAVIOR_FLOW__VARIABLE_SCOPE_H_
+#define BEHAVIOR_FLOW__VARIABLE_SCOPE_H_
 
 #include <vector>
 #include <string>
@@ -16,13 +19,13 @@ class VariableScope {
 
     VariableScope getSubScope(std::vector<std::string> local_var_names);
 
-    <typename T>
-    getLocalVariable(std::string var_name) {
+    template <typename T>
+    T getLocalVariable(std::string var_name) {
 
     }
 
-    <typename T>
-    getGlobalVariable(std::string var_name) {
+    template <typename T>
+    T getGlobalVariable(std::string var_name) {
 
     }
 
@@ -35,3 +38,5 @@ class VariableScope {
 };
 
 } // end namespace behaviorflow
+
+#endif  // BEHAVIOR_FLOW__VARIABLE_SCOPE_H_
