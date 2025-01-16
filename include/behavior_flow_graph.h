@@ -6,10 +6,10 @@
 namespace behaviorflow {
 
 class BehaviorFlowGraph {
-  public:
-    BehaviorFlowGraph();
+ public:
+  BehaviorFlowGraph();
 };
 
-} // end namespace behaviorflow
+}  // end namespace behaviorflow
 
 #endif  // BEHAVIOR_FLOW__BEHAVIOR_FLOW_GRAPH_H_

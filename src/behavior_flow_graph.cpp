@@ -2,8 +2,6 @@
 
 namespace behaviorflow {
 
-BehaviorFlowGraph::BehaviorFlowGraph() {
-    
-}
+BehaviorFlowGraph::BehaviorFlowGraph() {}
 
-}
+}  // namespace behaviorflow

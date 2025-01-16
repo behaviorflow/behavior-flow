@@ -1,24 +1,17 @@
 // Copyright (c) 2024, Mitch Adams
 
 #include <gtest/gtest.h>
+
 #include "graph_file_parser_json.h"
 
 using namespace behaviorflow;
 
-class GraphFileParserJsonTest : public ::testing::Test
-{
-protected:
+class GraphFileParserJsonTest : public ::testing::Test {
+ protected:
   GraphFileParserJson parser;
-  void SetUp() override
-  {
-    parser = GraphFileParserJson();
-  }
+  void SetUp() override { parser = GraphFileParserJson(); }
 };
 
-TEST_F(GraphFileParserJsonTest, EmptyString)
-{
-}
+TEST_F(GraphFileParserJsonTest, EmptyString) {}
 
-TEST_F(GraphFileParserJsonTest, EmptyFile)
-{
-}
+TEST_F(GraphFileParserJsonTest, EmptyFile) {}
