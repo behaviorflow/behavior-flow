@@ -2,6 +2,7 @@
 #define BEHAVIOR_FLOW__TEST__TEST_NODES_H_
 
 #include "behavior_flow_node.h"
+#include <iostream>
 
 namespace behaviorflow {
 

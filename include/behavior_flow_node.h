@@ -12,19 +12,20 @@ class BehaviorFlowNode {
   BehaviorFlowNode() {}
   virtual ~BehaviorFlowNode() = default;
 
-  void init(std::string node_type_name, std::string node_instance_name);
+  void init(std::string node_instance_name, std::string node_type_name);
+
+  std::string getInstanceName();
 
   std::string getTypeName();
 
-  std::string getInstanceName();
   // virtual void parameters() = 0;
   // virtual void returnTypes() = 0;
   // virtual void run() = 0;
 
  private:
   bool initialized_ = false;
-  std::string node_type_name_;
   std::string node_instance_name_;
+  std::string node_type_name_;
   // std::string node_description_;
 };
 

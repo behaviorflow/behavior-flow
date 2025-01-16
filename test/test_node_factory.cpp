@@ -21,7 +21,7 @@ protected:
 TEST_F(NodeFactoryTest, RegisterNodeClass)
 {
 	factory.registerNodeType<TestNodeSimple>("TestNode");
-	auto node = factory.createNodeInstance("TestNode", "TestNodeInstance");
+	auto node = factory.createNodeInstance("TestNodeInstance", "TestNode");
 	EXPECT_NE(node, nullptr);
 	EXPECT_EQ(typeid(*node), typeid(TestNodeSimple));
 	EXPECT_EQ(node->getTypeName(), "TestNode");
@@ -31,7 +31,7 @@ TEST_F(NodeFactoryTest, RegisterNodeClass)
 TEST_F(NodeFactoryTest, RegisterNodeClassWithParams)
 {
 	factory.registerNodeType<TestNodeWithConstructorParams>("TestNodeWithParams", 5, "hello");
-	auto node = factory.createNodeInstance("TestNodeWithParams", "TestNodeWithParamsInstance");
+	auto node = factory.createNodeInstance("TestNodeWithParamsInstance", "TestNodeWithParams");
 	EXPECT_NE(node, nullptr);
 	EXPECT_EQ(typeid(*node), typeid(TestNodeWithConstructorParams));
 	auto testNode = static_cast<TestNodeWithConstructorParams*>(node.get());
@@ -39,11 +39,29 @@ TEST_F(NodeFactoryTest, RegisterNodeClassWithParams)
 	EXPECT_EQ(testNode->getParam2(), "hello");
 }
 
+TEST_F(NodeFactoryTest, SameClassDifferentParamsDifferentTypes)
+{
+	factory.registerNodeType<TestNodeWithConstructorParams>("TestNodeWithParams1", 5, "hello");
+	factory.registerNodeType<TestNodeWithConstructorParams>("TestNodeWithParams2", 10, "world");
+	auto node1 = factory.createNodeInstance("TestNodeWithParamsInstance1", "TestNodeWithParams1");
+	auto node2 = factory.createNodeInstance("TestNodeWithParamsInstance2", "TestNodeWithParams2");
+	EXPECT_NE(node1, nullptr);
+	EXPECT_NE(node2, nullptr);
+	EXPECT_EQ(typeid(*node1), typeid(TestNodeWithConstructorParams));
+	EXPECT_EQ(typeid(*node2), typeid(TestNodeWithConstructorParams));
+	auto testNode1 = static_cast<TestNodeWithConstructorParams*>(node1.get());
+	auto testNode2 = static_cast<TestNodeWithConstructorParams*>(node2.get());
+	EXPECT_EQ(testNode1->getParam1(), 5);
+	EXPECT_EQ(testNode1->getParam2(), "hello");
+	EXPECT_EQ(testNode2->getParam1(), 10);
+	EXPECT_EQ(testNode2->getParam2(), "world");
+}
+
 TEST_F(NodeFactoryTest, MultipleNodeInstances)
 {
 	factory.registerNodeType<TestNodeSimple>("TestNode");
-	auto node1 = factory.createNodeInstance("TestNode", "TestNodeInstance1");
-	auto node2 = factory.createNodeInstance("TestNode", "TestNodeInstance2");
+	auto node1 = factory.createNodeInstance("TestNodeInstance1", "TestNode");
+	auto node2 = factory.createNodeInstance("TestNodeInstance2", "TestNode");
 	EXPECT_NE(node1, nullptr);
 	EXPECT_NE(node2, nullptr);
 	EXPECT_EQ(typeid(*node1), typeid(TestNodeSimple));
@@ -52,7 +70,7 @@ TEST_F(NodeFactoryTest, MultipleNodeInstances)
 
 TEST_F(NodeFactoryTest, UnregisteredNodeTypeName)
 {
-	EXPECT_EQ(factory.createNodeInstance("TestNode", "TestNodeInstance"), nullptr);
+	EXPECT_EQ(factory.createNodeInstance("TestNodeInstance", "TestNode"), nullptr);
 }
 
 TEST_F(NodeFactoryTest, RepeatedNodeTypeNameRegistration)
